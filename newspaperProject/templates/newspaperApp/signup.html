@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  <style>
+    body {
+      overflow-y: auto;
+    }
+
+    .container {
+      transform: translateY(60px);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form action="" method="post">
+      {% csrf_token %}
+      {% for i in form %}
+       <div class="label">
+        {{i.label}}
+       </div>
+       <div class="input">
+        {{i}}
+       </div>
+       <div class="help">
+        {{i.help_text}}
+       </div>
+       {% endfor %}
+      <input type="submit" value="Create">
+      <div class="or">
+        <h1>OR</h1>
+       </div>
+       <div class="create">
+        <a href="{% url 'login' %}">Already have an account?</a>
+       </div>
+    </form>
+  </div>
+  
+</body>
+</html>

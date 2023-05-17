@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+  <header>
+    <nav class="first">
+      <h1 class="logo"><a href="">Max<span>Todo</span></a></h1>
+      <div class="drop-profile">
+        <button>{{user}}</button>
+        <ul class="dropdown">
+          <li><a href="{% url 'password_change' %}">Change password</a></li>
+          <li><a href="{% url 'logout' %}">Log out</a></li>
+        </ul>
+      </div>
+
+    </nav>
+  </header>
+   
+  <main>
+    <section class="container">
+      <div class="search">
+        <form action="" method="post">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col">
+              <input type="search" name="search" id="">
+            </div>
+            <div class="col">
+              <input type="submit" value="Add+">
+            </div>
+          </div>
+         
+        </form>
+      </div>
+      <div class="content">
+        <ul>
+          {% for activity in activities%}
+            <li>
+              <div class="del">
+                <a href="{%url 'delete' activity.pk %}">del</a>
+              </div>
+              <div class="cont">
+                <p>{{activity.item_name}}</p>
+              </div>
+            </li>
+            {% empty%}
+            <h1>No activity added</h1>
+          {% endfor%}
+          {% if activities %}
+            <li class="footer"></li>
+            {% endif %}
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+
+<script>
+
+  const drop = document.querySelector('.drop-profile button')
+
+  const dropdown = document.querySelector('.dropdown')
+
+  drop.addEventListener("click", function(){
+     dropdown.classList.toggle("active")
+  })
+
+  
+
+  const text = document.querySelectorAll(".cont")
+  const p = document.querySelectorAll('.cont p')
+  text.forEach((txt, index)=>{
+    txt.addEventListener("click", function(){
+      console.log(p[index])
+      p[index].classList.toggle('mark')
+    })
+  })
+</script>
+</html>

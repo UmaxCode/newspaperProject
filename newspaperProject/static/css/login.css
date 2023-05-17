@@ -1,0 +1,72 @@
+:root {
+  --background-pr: #d7d5d5;
+  --background-log: rgb(32, 75, 145);
+}
+
+*{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--background-pr);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background-color: var(--background-log);
+  width: min(500px, 90%);
+  padding: 40px 20px;
+  border-radius: 8px;
+  box-shadow: 6px 6px 30px rgba(0, 0, 0, 0.2);
+}
+
+.label {
+  color: white;
+  margin-bottom: 5px;
+}
+
+.input {
+  margin-bottom: 16px;
+}
+
+.input input, input[type='submit'] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+}
+
+input[type='submit']{
+  margin-top: 12px;
+  background-color: gold;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.or h1 {
+  color: white;
+  text-align: center;
+}
+
+.create a {
+  display: block;
+  color: white;
+  text-align: center;
+}
+
+.help {
+  color: white;
+  margin-bottom: 8px;
+}
+
+
+
